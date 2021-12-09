@@ -17,19 +17,19 @@ public class MainApp {
     }
 
     private void demoFilter() {
-        ProductManager pList = new ProductManager();
-        pList.add(new Product("Fallout 4", 64.99));
-        pList.add(new Product("MGS", 45.99));
-        pList.add(new Product("The Witcher III", 70.59));
-        pList.add(new Product("Sims 5", 35.50));
-        pList.add(new Product("MGS", 65.99)); //deliberate duplicate
+        ProductManager pMgr = new ProductManager();
+        pMgr.add(new Product("Fallout 4", 64.99));
+        pMgr.add(new Product("MGS", 45.99));
+        pMgr.add(new Product("The Witcher III", 70.59));
+        pMgr.add(new Product("Sims 5", 35.50));
+        pMgr.add(new Product("MGS", 65.99)); //deliberate duplicate
 
         System.out.println("Filter by Product name...");
-        List<Product> nameList = pList.filterBy(new ProductNameFilter("mGs"));
+        List<Product> nameList = pMgr.filterBy(new ProductNameFilter("mGs"));
         System.out.println(nameList);
 
         System.out.println("Filter by Product price less than an amount...");
-        List<Product> costList = pList.filterBy(new ProductPriceLessThanFilter(65));
+        List<Product> costList = pMgr.filterBy(new ProductPriceLessThanFilter(65));
         System.out.println(costList);
     }
 
